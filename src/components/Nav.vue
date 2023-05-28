@@ -3,7 +3,7 @@
         <div class="front-header">
             <nav>
                 <div>
-                    <h3>Foodie</h3>
+                    <h3>CakesnPastries</h3>
                     <small>Awesome food and Beverages</small>
                 </div>
 

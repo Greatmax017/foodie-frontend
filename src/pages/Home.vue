@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="cart-section">
+                <div class="cart-section" v-if="cartShow">
                     <div class="cart-card">
                         <div class="cart-header">
                             <h3>New Order</h3>
@@ -159,6 +159,7 @@ export default {
             active: 0,
             cart: [],
             address: '',
+            cartShow: true,
             showAddressModal: false
         }
     },

@@ -3,7 +3,7 @@
         <div>
             <div>
                 <div class="account-header">
-                    <h3><span class="ti-bolt"></span> Foodie</h3>
+                    <h3><span class="ti-bolt"></span> CakesnPastries</h3>
                     <small>Awesome food and Beverages</small>
                 </div>
 

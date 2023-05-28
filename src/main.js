@@ -8,7 +8,7 @@ import axios from 'axios'
 import '@/assets/scss/main.scss'
 
 //Global vars
-Vue.prototype.$apiUrl = 'https://obscure-sands-68445.herokuapp.com/api'
+Vue.prototype.$apiUrl = 'https://cakes.shadownetsolutions.com/api'
 Vue.prototype.$axios = axios
 
 import VueAlertify from 'vue-alertify';

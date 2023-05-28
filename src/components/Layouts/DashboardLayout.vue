@@ -5,7 +5,7 @@
             <div class="sidebar-header">
                 <h3 class="brand">
                     <span class="ti-bolt"></span> 
-                    <span>Foodie</span>
+                    <span>CakesnPastries</span>
                 </h3> 
                 <label for="sidebar-toggle" class="ti-menu-alt"></label>
             </div>

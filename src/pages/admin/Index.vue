@@ -9,7 +9,7 @@
                         <span class="ti-briefcase"></span>
                         <div>
                             <h5>Account Balance</h5>
-                            <h4>$30,659.45</h4>
+                            <h4>&#8358;30,659.45</h4>
                         </div>
                     </div>
                     <div class="card-footer">
@@ -22,7 +22,7 @@
                         <span class="ti-reload"></span>
                         <div>
                             <h5>Pending</h5>
-                            <h4>$19,500.45</h4>
+                            <h4>&#8358;19,500.45</h4>
                         </div>
                     </div>
                     <div class="card-footer">
@@ -35,7 +35,7 @@
                         <span class="ti-check-box"></span>
                         <div>
                             <h5>Processed</h5>
-                            <h4>$20,659</h4>
+                            <h4>65</h4>
                         </div>
                     </div>
                     <div class="card-footer">
