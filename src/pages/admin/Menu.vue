@@ -39,6 +39,7 @@
                                         </td>
                                         <td>
                                             <button class="btn btn-main-gradient" @click="removeMenu(menuItem.id, index)"><span class="ti-trash"></span></button>
+                                            <button class="btn btn-main-" @click="$router.push(`/admin/menu/update/${menuItem.id}`)"><span class="ti-pencil"></span></button>
                                         </td>
                                     </tr>
                                 </tbody>

@@ -23,7 +23,7 @@
                                     <option value="">Choose</option>
                                     <option value="admin">Administrator</option>
                                     <option value="customer">Customer</option>
-                                    <option value="driver">Driver</option>
+                                    <option value="rider">Rider</option>
                                 </select>
                             </div>
 

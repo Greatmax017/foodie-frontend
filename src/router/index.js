@@ -10,12 +10,18 @@ import Account from '@/pages/Account'
 import Dashboard from '@/pages/admin/Index'
 import Login from '@/pages/admin/Login'
 import Categories from '@/pages/admin/Categories'
+import Protein from '@/pages/admin/Protein'
 import AddCategory from '@/pages/admin/AddCategory'
+import AddProtein from '@/pages/admin/AddProtein'
 import Orders from '@/pages/admin/Orders'
 import Menu from '@/pages/admin/Menu'
 import AddMenu from '@/pages/admin/AddMenu'
+import UpdateMenu from '@/pages/admin/UpdateMenu'
 import Users from '@/pages/admin/Users'
 import AddUser from '@/pages/admin/AddUser'
+import Order from '@/pages/admin/Order'
+import Locations from '@/pages/admin/Locations'
+import AddLocation from '@/pages/admin/AddLocation'
 
 
 // Define some routes
@@ -25,12 +31,18 @@ const routes = [
     { path: '/admin/login', component: Login },
     { path: '/admin/dashboard', meta: { requiresAuth: true, admin: true }, component: Dashboard },
     { path: '/admin/categories', meta: { requiresAuth: true, admin: true }, component: Categories },
+    { path: '/admin/protein', meta: { requiresAuth: true, admin: true }, component: Protein },
     { path: '/admin/category/add', meta: { requiresAuth: true, admin: true }, component: AddCategory },
+    {path: '/admin/location/add', meta: { requiresAuth: true, admin: true }, component: AddLocation},
+    { path: '/admin/protein/add', meta: { requiresAuth: true, admin: true }, component: AddProtein },
     { path: '/admin/menu', meta: { requiresAuth: true, admin: true }, component: Menu },
     { path: '/admin/menu/add', meta: { requiresAuth: true, admin: true }, component: AddMenu },
+    { path: '/admin/order/:id', meta: { requiresAuth: true, admin: true }, component: Order },
+    { path: '/admin/menu/update/:id', meta: { requiresAuth: true, admin: true }, component: UpdateMenu },
     { path: '/admin/orders', meta: { requiresAuth: true, admin: true }, component: Orders },
     { path: '/admin/users', meta: { requiresAuth: true, admin: true }, component: Users },
     { path: '/admin/user/add', meta: { requiresAuth: true, admin: true }, component: AddUser },
+    { path: '/admin/locations', meta: { requiresAuth: true, admin: true }, component: Locations },
 ]
 
 // Create the router instance and pass the `routes` option

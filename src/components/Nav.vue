@@ -4,7 +4,7 @@
             <nav>
                 <div>
                     <h3>CakesnPastries</h3>
-                    <small>Awesome food and Beverages</small>
+                    <small>Awesome foods</small>
                 </div>
 
                 <div class="front-search">

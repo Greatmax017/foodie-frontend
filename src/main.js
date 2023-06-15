@@ -4,11 +4,13 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 
+
 //css
 import '@/assets/scss/main.scss'
 
+
 //Global vars
-Vue.prototype.$apiUrl = 'https://cakes.shadownetsolutions.com/api'
+Vue.prototype.$apiUrl = 'https://backend.cakesandpastries.ng/api'
 Vue.prototype.$axios = axios
 
 import VueAlertify from 'vue-alertify';
@@ -21,7 +23,7 @@ Vue.use(VueAlertify, {
     position: 'top-right',
     // adds a close button to notifier messages
     closeButton: false,
-  },
+  }
 });
 
 Vue.config.productionTip = false

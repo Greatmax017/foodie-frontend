@@ -39,10 +39,16 @@
                             <button class="btn btn-main-gradient" @click="updateCart(item)">
                                 Add to cart
                             </button>
+                           
                         </div>
                     </div>
+                   
                 </div>
-                <div class="cart-section" v-if="cartShow">
+                
+
+                <!-- cart for pc  -->
+                <div class="cart-section" v-if="cartShow" :class="{ 'slide-in': cartSlideIn }">
+                    
                     <div class="cart-card">
                         <div class="cart-header">
                             <h3>New Order</h3>
@@ -127,29 +133,20 @@
 
 
 
-        <modal v-if="showAddressModal" @close="showAddressModal = false">
-            <h4 slot="header">Provide your address</h4>
-
-            <div slot="body">
-                <div class="form-group">
-                    <label for="">Your address</label>
-                    <input type="text" class="form-control" v-model="address" placeholder="No 230, Abba road" />
-                </div>
-            </div>
-        </modal>
+        
     </div>
 </template>
 
 <script>
 import paystack from 'vue-paystack'
 import Nav from '@/components/Nav'
-import modal from '@/components/Modal'
+
 
 export default {
     name: 'Home',
     components: {
         paystack,
-        modal,
+        
         Nav,
     },
     data() {
@@ -159,8 +156,6 @@ export default {
             active: 0,
             cart: [],
             address: '',
-            cartShow: true,
-            showAddressModal: false
         }
     },
     mounted() {
@@ -180,6 +175,7 @@ export default {
         getCart() {
             this.cart = JSON.parse(localStorage.cart) || [];
         },
+        
         updateCart(menuitem) {
             let cartDB = localStorage.getItem('cart')
             if(!cartDB || JSON.parse(cartDB).length < 1) {
@@ -275,6 +271,7 @@ export default {
             this.cart.map(item => {
                 total += Number(item.price) * Number(item.qty)
             })
+            console.log(total);
 
             return total
         },

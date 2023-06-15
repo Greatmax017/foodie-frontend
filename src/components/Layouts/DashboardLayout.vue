@@ -31,6 +31,18 @@
                         </router-link>
                     </li>
                     <li>
+                        <router-link to="/admin/protein">
+                            <span class="ti-agenda"></span>
+                            <span>Protein</span>
+                        </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/admin/locations">
+                            <span class="ti-agenda"></span>
+                            <span>Locations</span>
+                        </router-link>
+                    </li>
+                    <li>
                         <router-link to="/admin/orders">
                             <span class="ti-clipboard"></span>
                             <span>Orders</span>

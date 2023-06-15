@@ -1,11 +1,15 @@
 <template>
     <dashboard-layout>
         <div slot="main-content">
-            <h2 class="dash-title">Add Menu</h2>
+            <!-- <div v-for="menuItem in menuFirst" :key="menuItem.id"> -->
+            <h2 class="dash-title">Update {{ menuFirst.name}}</h2>
+
+            <!-- </div> -->
             
             <section class="recent">
                 <div class="">
                     <div class="activity-card pad-1">
+                   
                         <form enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="">Name</label>
@@ -47,6 +51,7 @@
                                 <button type="button" @click="addItem" class="btn btn-main">{{button}}</button>
                             </div>
                         </form>
+                    
                     </div>
                 </div>
             </section>
@@ -57,6 +62,7 @@
 <script>
 import DashboardLayout from '@/components/Layouts/DashboardLayout'
 
+
 export default {
     name: 'AddMenu',
     components: {
@@ -65,30 +71,59 @@ export default {
     data() {
         return {
             categories: [],
-            button: 'Submit',
+            button: 'Update',
+            menuId: null,
+            name: null,
+            menuFirst: [],
             menuItem: {
-                name: '',
+                name: null,
                 isAvailable: true,
-                category_id: '',
-                price: '',
-                measure: '',
-                image: '',
+                category_id: null,
+                price: null,
+                measure: null,
+                image: null,
                 
             }
         }
     },
     mounted() {
-        this.getCategories()
+        const id = this.$route.params.id;
+        this.menuId = id;
+        this.getMenu();
+        this.getCategories();
+        
+        
     },
     methods: {
         getCategories() {
             this.$axios.get(`${this.$apiUrl}/categories/all`)
             .then(res => {
                 this.categories = res.data.data
+               
             })
             .catch(error => {
                 console.log(error.response)
             })
+        },
+        getMenu(){
+            this.$axios.get(`${this.$apiUrl}/menu/${this.menuId}`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.authtoken}`
+                }
+            })
+            .then(res => {
+                this.menuFirst= res.data.data;
+                this.menuItem.name = this.menuFirst.name;
+                this.menuItem.price = this.menuFirst.price;
+                this.menuItem.measure = this.menuFirst.measure;
+               
+               
+                
+            })
+            .catch(error => {
+                console.log(error.response)
+            })
+
         },
         async saveImage(e) {
             this.button = "Uploading image...";
@@ -103,22 +138,20 @@ export default {
             }catch(error) {
                 console.log(error.response);
             }
-            this.button = "Submit";
+            this.button = "Update";
         },
         addItem() {
             const {name, price, category_id, image, measure, isAvailable} = this.menuItem
             
-            if(!name || !price || !category_id || !image || !measure) {
-                return this.$alertify.error('Incomplete form data')
-            }
-
-            this.$axios.post(`${this.$apiUrl}/menu/add`, {name, price, category_id, image, measure, isAvailable}, {
+            
+            this.$axios.post(`${this.$apiUrl}/menu/${this.menuId}/update/`, {name, price, category_id, image, measure, isAvailable}, {
                 headers: {
                     Authorization: `Bearer ${localStorage.authtoken}`
                 }
             })
-            .then(() => {
+            .then(  res => {
                 this.$router.push('/admin/menu')
+                this.$alertify.success(res.data.message)
             })
             .catch(error => {
                 if(error.response.data.message) {
