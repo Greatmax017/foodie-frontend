@@ -14,6 +14,9 @@
                         <h3>Added menu item</h3>
                         
                         <div class="table-responsive">
+                            <div>
+                            <input type="text" v-model="searchQuery" placeholder="Search by name" class="form-control">
+                            </div>
                             <table>
                                 <thead>
                                     <tr>
@@ -27,7 +30,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="(menuItem, index) in menu" :key="index" >
+                                    <tr v-for="(menuItem, index) in filteredMenu" :key="index" >
                                         <td>#{{index + 1}}</td>
                                         <td><img :src="menuItem.image" style="border-radius: 50%" height="50px" width="50px" alt=""></td>
                                         <td>{{menuItem.name}}</td>
@@ -62,9 +65,23 @@ export default {
     name: 'Menu',
     data() {
         return {
+            searchQuery: '',
             menu: []
         }
     },
+    computed: {
+  filteredMenu() {
+    if (!this.searchQuery) {
+      return this.menu; // Return all menu items if search query is empty
+    }
+
+    const query = this.searchQuery.toLowerCase();
+    return this.menu.filter((menuItem) =>
+      menuItem.name.toLowerCase().includes(query)
+      
+    );
+  },
+},
     mounted() {
         this.getMenu()
     },

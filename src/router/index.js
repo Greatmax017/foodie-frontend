@@ -22,6 +22,7 @@ import AddUser from '@/pages/admin/AddUser'
 import Order from '@/pages/admin/Order'
 import Locations from '@/pages/admin/Locations'
 import AddLocation from '@/pages/admin/AddLocation'
+import Receipt from '@/pages/admin/Receipt'
 
 
 // Define some routes
@@ -43,6 +44,8 @@ const routes = [
     { path: '/admin/users', meta: { requiresAuth: true, admin: true }, component: Users },
     { path: '/admin/user/add', meta: { requiresAuth: true, admin: true }, component: AddUser },
     { path: '/admin/locations', meta: { requiresAuth: true, admin: true }, component: Locations },
+    { path: '/admin/receipt/:id', meta: { requiresAuth: true, admin: true }, component: Receipt },
+    
 ]
 
 // Create the router instance and pass the `routes` option

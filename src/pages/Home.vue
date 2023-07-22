@@ -47,7 +47,7 @@
                 
 
                 <!-- cart for pc  -->
-                <div class="cart-section" v-if="cartShow" :class="{ 'slide-in': cartSlideIn }">
+                <div class="cart-section" v-if="cartShow">
                     
                     <div class="cart-card">
                         <div class="cart-header">
@@ -83,7 +83,7 @@
                                             <p>{{address}}</p>
                                         </div>
                                         <button class="btn btn-main-gradient" @click="showAddressModal = true">
-                                            <!--<span class="ti-location-pin"></span>--> Change
+                                            <span class="ti-location-pin"></span> Change
                                         </button>
                                     </div>
                                 </div>
@@ -155,6 +155,7 @@ export default {
             categories: [],
             active: 0,
             cart: [],
+            cartShow: true,
             address: '',
         }
     },

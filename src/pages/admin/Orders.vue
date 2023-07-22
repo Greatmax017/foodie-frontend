@@ -16,6 +16,7 @@
                                         <th>ID</th>
                                         <th>PayRef</th>
                                         <th>Amount</th>
+                                        <th>Paid</th>
                                         <th>Status</th>
                                         <th>Date delivered</th>
                                         <th>Action</th>
@@ -27,6 +28,7 @@
                                         <td>{{order.payment_ref}}</td>
                                         <td>{{order.amount}}</td>
                                         <td>{{order.status}}</td>
+                                        <td>{{ order.state }}</td>
                                         <td>
                                             {{ new Date(order.updated_at).toLocaleString() }}
                                         </td>

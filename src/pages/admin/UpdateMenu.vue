@@ -144,7 +144,7 @@ export default {
             const {name, price, category_id, image, measure, isAvailable} = this.menuItem
             
             
-            this.$axios.post(`${this.$apiUrl}/menu/${this.menuId}/update/`, {name, price, category_id, image, measure, isAvailable}, {
+            this.$axios.post(`${this.$apiUrl}/menu/update/${this.menuId}`, {name, price, category_id, image, measure, isAvailable}, {
                 headers: {
                     Authorization: `Bearer ${localStorage.authtoken}`
                 }
