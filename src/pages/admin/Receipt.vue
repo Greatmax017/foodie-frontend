@@ -1,9 +1,9 @@
+
 <template>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Receipt</title>
-  
 </head>
 <body>
     <div class="header">
@@ -11,60 +11,59 @@
         <p>Futa South Gate</p>
         <hr />
         <h5>Customer Information</h5>
-                <p><strong>Name:</strong> {{ orders.name }}   </p>
-                <p><strong>Phone:</strong>  {{ orders.phone }}</p>
-                <p><strong>Address:</strong>  {{ orders.address }}</p>
-                <p><strong>Location:</strong>  {{ orders.location }}</p>
+        <p><strong>Name:</strong> {{ orders.name }}</p>
+        <p><strong>Phone:</strong> {{ orders.phone }}</p>
+        <p><strong>Address:</strong> {{ orders.address }}</p>
+        <p><strong>Location:</strong> {{ orders.location }}</p>
     </div>
 
     <table class="table-container">
-        <thead>
-            <tr>
-                <th>Item</th>
-                <th>Quantity</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody v-for="(food, index) in JSON.parse(orders.items)" :key="index">
-            <tr>
-                <td>{{ food.name }}</td>
-                <td>{{ food.quantity }}</td>
-                <td> &#8358;{{ food.price * food.quantity }}</td>
-            </tr>
-            <tr v-for="(protein, pIndex) in food.protein" :key="pIndex">
-                <td>{{ protein.name }}</td>
-                <td>{{ protein.quantity }}</td>
-                <td>&#8358;{{ protein.price }}</td>
-            </tr>
-            </tbody>
-            <tbody>
-            <tr>
-                <td></td>
-                <td>Delivery</td>
-                <td> &#8358;{{orders.deliveryFee}}</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Takeaway</td>
-                <td> &#8358;210</td>
-            </tr>
-           
-            <tr class="total-row">
-                <td></td>
-                <td>Total:</td>
-                
-                <td>&#8358;{{ orders.amount }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody v-for="(item, index) in orders.items" :key="index">
+        <tr>
+            <td>{{ item.menu.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>&#8358;{{ item.price * item.quantity }}</td>
+        </tr>
+        <tr v-for="(protein, pIndex) in item.proteins" :key="pIndex">
+            <td>{{ protein.details.name }}</td>
+            <td>{{ protein.quantity }}</td>
+            <td>&#8358;{{ protein.price * protein.quantity }}</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td></td>
+            <td>Delivery</td>
+            <td>&#8358;{{ orders.deliveryFee }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Takeaway</td>
+            <td>&#8358;210</td>
+        </tr>
+        <tr class="total-row">
+            <td></td>
+            <td>Total:</td>
+            <td>&#8358;{{ orders.amount }}</td>
+        </tr>
+    </tbody>
+</table>
 
-    <div class="thank-you">
-        <p>Thank you for your purchase!</p>
-    </div>
-     <!-- Print button section -->
-     <div class="print-button">
-        <button class="print-btn" onclick="window.print()">Print Receipt</button>
-    </div>
+<div class="thank-you">
+    <p>Thank you for your purchase!</p>
+</div>
+
+<!-- Print button section -->
+<div class="print-button">
+    <button class="print-btn" onclick="window.print()">Print Receipt</button>
+</div>
 </body>
 </html>
 </template>

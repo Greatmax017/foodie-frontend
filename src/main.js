@@ -10,7 +10,7 @@ import '@/assets/scss/main.scss'
 
 
 //Global vars
-Vue.prototype.$apiUrl = 'https://backend.cakesandpastries.ng/api'
+Vue.prototype.$apiUrl = 'https://endpoint.cakesandpastries.ng/api'
 Vue.prototype.$axios = axios
 
 import VueAlertify from 'vue-alertify';

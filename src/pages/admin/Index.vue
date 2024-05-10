@@ -8,14 +8,18 @@
                     <div class="card-body">
                         <span class="ti-briefcase"></span>
                         <div>
-                            <h5>Total Sales</h5>
-                            <h4>&#8358;{{total}}</h4>
+                            <h5>Sales Today</h5>
+                            <h4>&#8358;{{today}}</h4>
                         </div>
                     </div>
                     <!-- <div class="card-footer">
                         <a href="">View all</a>
                     </div> -->
                 </div>
+
+
+                
+                
                 
                 <div class="card-single">
                     <div class="card-body">
@@ -29,8 +33,20 @@
                         <a @click="$router.push('/admin/orders')" href="">View all</a>
                     </div>
                 </div>
-                
                 <div class="card-single">
+                    <div class="card-body">
+                        <span class="ti-reload"></span>
+                        <div>
+                            <h5>Total Sales</h5>
+                            <h4>&#8358;{{total}}</h4>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a @click="$router.push('/admin/orders')" href="">View all</a>
+                    </div>
+                </div>
+                
+                <!-- <div class="card-single">
                     <div class="card-body">
                         <span class="ti-check-box"></span>
                         <div>
@@ -41,7 +57,7 @@
                     <div class="card-footer">
                         <a href="">View all</a>
                     </div>
-                </div>
+                </div> -->
             </div>
             
             <section class="recent">
@@ -99,6 +115,7 @@ export default {
         return {
             menu: [],
             total: null,
+            today: null,
             pending: null,
             proccessed: null
 
@@ -107,6 +124,7 @@ export default {
     mounted() {
         this.getMenu()
         this.totalSales()
+        this.todaySales()
         this.pendingOrder()
         this.proccessedOrder()
     },
@@ -145,6 +163,23 @@ export default {
             .then( res => {
                 const result = res.data;
                 this.total = result.data;
+            })
+            .catch(error => {
+                console.log(error.response)
+            }) 
+        },
+
+        // today
+        todaySales(){
+            this.$axios.get(`${this.$apiUrl}/todaysales`,
+            {
+                headers: {
+                    Authorization: `Bearer ${localStorage.authtoken}`
+                }
+            })
+            .then( res => {
+                const result = res.data;
+                this.today = result.data;
             })
             .catch(error => {
                 console.log(error.response)
