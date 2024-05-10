@@ -27,7 +27,7 @@ import Receipt from '@/pages/admin/Receipt'
 
 // Define some routes
 const routes = [
-    { path: '/', component: Home },
+    { path: '/', component: Login },
     { path: '/account', component: Account },
     { path: '/admin/login', component: Login },
     { path: '/admin/dashboard', meta: { requiresAuth: true, admin: true }, component: Dashboard },
