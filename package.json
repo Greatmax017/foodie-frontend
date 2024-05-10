@@ -18,9 +18,6 @@
     "vue-router": "^3.4.9",
     "vuex": "^3.5.1"
   },
-  "engines": {
-    "node": "16.x"
-  },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
