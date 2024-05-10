@@ -3,7 +3,6 @@ import Vue from 'vue'
 Vue.use(VueRouter)
 
 // Define route components.
-import Home from '@/pages/Home'
 import Account from '@/pages/Account'
 
 //Admin routes
