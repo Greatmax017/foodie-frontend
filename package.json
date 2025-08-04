@@ -19,8 +19,8 @@
     "vuex": "^3.5.1"
   },
   "engines": {
-    "node": "16.x"
-},
+    "node": "18.0.0"
+  },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
